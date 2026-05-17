@@ -25,6 +25,7 @@ DEBUG = os.environ.get('RENDER', '') == ''
 
 ALLOWED_HOSTS = ['*'] # In production you should set this to your Render URL
 CSRF_TRUSTED_ORIGINS = ['https://montreux-backend.onrender.com', 'https://montreux-shop.onrender.com']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 INSTALLED_APPS = [
