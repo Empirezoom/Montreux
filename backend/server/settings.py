@@ -24,6 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-qzr(6+3p=#b3_a1f$mw#^
 DEBUG = os.environ.get('RENDER', '') == ''
 
 ALLOWED_HOSTS = ['*'] # In production you should set this to your Render URL
+CSRF_TRUSTED_ORIGINS = ['https://montreux-backend.onrender.com', 'https://montreux-shop.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
