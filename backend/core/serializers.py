@@ -26,7 +26,10 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'category', 'name', 'slug', 'description', 'base_price', 'discount_price', 'image', 'image_url', 'variations', 'is_featured', 'created_at', 'updated_at']
 
     def get_image_url(self, obj):
+        request = self.context.get('request')
         if obj.image:
+            if request:
+                return request.build_absolute_uri(obj.image.url)
             return obj.image.url
         elif obj.image_url:
             return obj.image_url
@@ -58,7 +61,10 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
     def get_product_image(self, obj):
         product = obj.variation.product
+        request = self.context.get('request')
         if product.image:
+            if request:
+                return request.build_absolute_uri(product.image.url)
             return product.image.url
         return product.image_url
 

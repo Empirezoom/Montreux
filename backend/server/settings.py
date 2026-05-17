@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-qzr(6+3p=#b3_a1f$mw#^jah3n5ny3w4s=0(!jpcb#dy^5f^o(')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('RENDER', '') == ''
 
 ALLOWED_HOSTS = ['*'] # In production you should set this to your Render URL
 CSRF_TRUSTED_ORIGINS = ['https://montreux-backend.onrender.com', 'https://montreux-shop.onrender.com']
